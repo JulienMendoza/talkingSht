@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity , Text, ImageBackground } from 'react-native';
 import { Audio } from 'expo-av';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -58,6 +58,9 @@ const App = () => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.topWrapper}>
+                <Image source={require('./assets/talkinSht.png')}  />
+            </View>
             <TouchableOpacity onPress={playSound} onLongPress={startRecording} onPressOut={stopRecording}>
                 <View style={styles.imageContainer}>
                     <Image
@@ -102,6 +105,22 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: '100%',
+        zIndex: 2,
+    },
+    topWrapper: {
+        flex: .3,
+        width: '100%',
+    },
+    topStartImage: {
+        borderWidth: 2,
+        borderColor: 'black',
+        width: '100%',
+        height: '100%',
+        resizeMode: "contain",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        alignContent: "flex-start",
+        position: 'absolute',
         zIndex: 2,
     },
 });
